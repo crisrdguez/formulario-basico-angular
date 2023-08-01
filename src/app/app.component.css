@@ -1,0 +1,29 @@
+#formulario {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para los labels */
+  label {
+    font-weight: bold;
+  }
+  
+  /* Estilos para los elementos del formulario */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos para el botón */
+  .btn-primary {
+    width: 100%;
+  }
+
+  .salarioEstilo{
+    color:rgb(7, 199, 23);
+    font-weight: bold;
+    text-decoration: underline;
+}
