@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from './empleado.model';
+import { ServicioEmpleadosService } from './servicio-empleados.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit{
 
   empleados:Empleado[]=[];
 
-  constructor() {
+  constructor(private miServicio:ServicioEmpleadosService) { //con esto, acabamos de inyectar en el componente principal el servicio que hemos creado
+
     const empleado1 = new Empleado("Cris", "RR", "jefa", 5000);
     const empleado2 = new Empleado("Fran", "FG", "secretario", 3000);
     const empleado3 = new Empleado("Juan", "MN", "administrativo", 2000);
@@ -27,6 +29,9 @@ export class AppComponent implements OnInit{
   enviarInformacion(){
     const empleadoNuevo = new Empleado(this.nombre,this.apellidos,this.cargo,this.salario);
 
+    //antes de que se agregue el empleado a la lista hago uso del servicio
+    this.miServicio.ventanaEmergente(`Nombre ${empleadoNuevo.nombre}`);//Puedo añadir la informacion que desee
+    
     this.empleados.push(empleadoNuevo);
 
     this.resetInfo();
