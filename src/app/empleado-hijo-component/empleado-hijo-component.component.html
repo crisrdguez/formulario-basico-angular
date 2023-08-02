@@ -1,0 +1,9 @@
+<div> 
+    {{iIdentificativo+1}} {{empleadoIdentificativo.nombre}} {{empleadoIdentificativo.apellido}}. Cargo: {{empleadoIdentificativo.cargo}}. 
+    Salario:<span [ngClass]="{salarioEstilo:empleadoIdentificativo.salario>3000}">{{empleadoIdentificativo.salario}}</span>
+</div>
+<!--Tengo que utilizar iIdentificativo y empleadoIdentificativo en vez de empleado e i-->
+<ul style="list-style: none;">
+    <li *ngFor="let item of arrayCaracteristicas">{{item}}</li>
+</ul>
+<app-caracteristicas-empleado-component (caracteristicasEmpleados)="addCaracterisitca($event)"></app-caracteristicas-empleado-component>

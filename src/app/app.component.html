@@ -1,12 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col">
-
-      <div *ngFor="let empleado of empleados; let i=index">
-        {{i+1}} {{empleado.nombre}} {{empleado.apellido}}. Cargo: {{empleado.cargo}}. 
-        Salario:<span [ngClass]="{salarioEstilo:empleado.salario>3000}">{{empleado.salario}}</span>
-      </div>
-
+      <!--doy un nombre identificativo a empleado y a i para luego poder usarlo en el componente hijo-->
+      <app-empleado-hijo-component  *ngFor="let empleado of empleados; let i=index" [empleadoIdentificativo]="empleado" [iIdentificativo]="i"></app-empleado-hijo-component>
+      
     </div>
     <div class="col">
       <form name="formulario" id="formulario">

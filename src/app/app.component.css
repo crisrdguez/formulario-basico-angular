@@ -22,8 +22,9 @@
     width: 100%;
   }
 
+  /*despues de hacer Input esto lo pongo en el css del componente hijo
   .salarioEstilo{
     color:rgb(7, 199, 23);
     font-weight: bold;
     text-decoration: underline;
-}
+}*/

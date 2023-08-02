@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Empleado } from './empleado.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Empleado } from './empleado.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   title = 'Listado de Empleados';
   nombre:string="";
@@ -38,6 +38,11 @@ export class AppComponent {
     this.cargo="";
     this.salario=0;
   }
-  
+
+  ngOnInit():void{
+    console.log("ngOnInit");
+  }
+
+   
 
 }
