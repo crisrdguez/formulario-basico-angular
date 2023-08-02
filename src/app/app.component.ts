@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from './empleado.model';
+import { ServicioEmpleadosDosService } from './servicio-empleados-dos.service';
 
 @Component({
   selector: 'app-root',
@@ -16,18 +17,17 @@ export class AppComponent implements OnInit{
 
   empleados:Empleado[]=[];
 
-  constructor() {
-    const empleado1 = new Empleado("Cris", "RR", "jefa", 5000);
-    const empleado2 = new Empleado("Fran", "FG", "secretario", 3000);
-    const empleado3 = new Empleado("Juan", "MN", "administrativo", 2000);
-
-    this.empleados.push(empleado1, empleado2, empleado3);
+  constructor(private empleadosService:ServicioEmpleadosDosService) {
+    
+    //this.empleados=this.empleadosService.empleados; podriamos hacerlo asi, pero tb con ngOnInit
+  
   }
 
   enviarInformacion(){
     const empleadoNuevo = new Empleado(this.nombre,this.apellidos,this.cargo,this.salario);
 
-    this.empleados.push(empleadoNuevo);
+    //llamo al metodo que agrega empleados
+    this.empleadosService.agregarEmpleadoServicio(empleadoNuevo);
 
     this.resetInfo();
   }
@@ -41,6 +41,8 @@ export class AppComponent implements OnInit{
 
   ngOnInit():void{
     console.log("ngOnInit");
+    this.empleados=this.empleadosService.empleados;
+
   }
 
    
